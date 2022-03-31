@@ -23,3 +23,6 @@ export interface SongModel {
   //For thumbnail
   artworkUrl100: string;
 }
+export interface SongModelForCards extends SongModel {
+  isItOpen: boolean;
+}

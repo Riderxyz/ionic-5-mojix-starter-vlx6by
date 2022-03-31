@@ -1,0 +1,32 @@
+<ion-card
+[class.expanded]="currentSong.isItOpen"
+  (click)="openDetails(currentSong)"
+  [style]="formatCardBackground(currentSong.artistName)"
+>
+  <ion-card-content class="card-content">
+    <div class="card-content-avatar">
+                  <ion-avatar class="card-content-avatar-img">
+        <img [src]="currentSong.artworkUrl100" />
+      </ion-avatar>
+    </div>
+    <div class="card-content-details">
+      <div class="card-content-details-title">
+        {{ currentSong.artistName }}
+      </div>
+      <div class="card-content-details-subtitle">
+        {{ currentSong.trackName }}
+      </div>
+      <div  *ngIf="currentSong.isItOpen" [@zoomInOnEnter]>
+        <div class="card-content-details-lenght">
+          Lenght: {{millisToMinutesAndSeconds(currentSong.trackTimeMillis)}}
+        </div>
+        <div class="card-content-details-price">
+          Price: {{currentSong.currency}}{{currentSong.trackPrice}}
+        </div>
+        <div class="card-content-details-lenght">
+          Released at : {{formatReleasedDate(currentSong)}}
+        </div>
+      </div>
+    </div>
+  </ion-card-content>
+</ion-card>

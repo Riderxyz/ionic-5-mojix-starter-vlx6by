@@ -1,0 +1,32 @@
+ion-card {
+  transition: 500ms;
+  height: 100px;
+  &.expanded{
+    height: 200px;
+    .card-content-avatar-img {
+      width: 150px !important;
+      height: 150px !important;
+      --border-radius: 0;
+    }
+  }
+  border-radius: 10px;
+  .card-content {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    .card-content-avatar {
+      margin-right: 5px;
+      .card-content-avatar-img {
+        width: 64px;
+        height: 64px;
+      }
+    }
+    .card-content-details {
+      display: flex;
+      flex-direction: column;
+      .card-content-details-title {
+        font-weight: bold;
+      }
+    }
+  }
+}

@@ -1,13 +1,14 @@
-import { Component } from "@angular/core";
-import { AlertController } from "@ionic/angular";
-import { ApiService } from "./api/api.service";
-import { SongResponse } from "./song/song.model";
+/* eslint-disable @angular-eslint/component-selector */
+import { AfterViewInit, Component } from '@angular/core';
+import { AlertController } from '@ionic/angular';
+import { ApiService } from './api/api.service';
+import { SongResponse } from './components/song/song.model';
 @Component({
-  selector: "my-app",
-  templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements AfterViewInit {
   /* ******** INTRUCTIONS **************
      1. Fill the list with the info provided by the API
      2. Use the Song component to display the song info
@@ -27,12 +28,12 @@ export class AppComponent {
   constructor(private api: ApiService) {}
 
   ngAfterViewInit(): void {
-    const artist = "Shakira";
-    const media = "musicVideo"; // Or movie
+    const artist = 'Shakira';
+    const media = 'musicVideo'; // Or movie
     this.api.searchSongs(artist, media).subscribe(
       (data: SongResponse) => {
-        console.log("Data", data);
-        console.log("Data", data.results[0]);
+        console.log('Data', data);
+        console.log('Data', data.results[0]);
       },
       error => {}
     );
